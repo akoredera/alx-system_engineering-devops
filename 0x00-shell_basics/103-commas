@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a -sort -mp
+ls -a -i -mp

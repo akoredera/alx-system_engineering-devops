@@ -1,0 +1,2 @@
+#!/bin/bash
+chmod ug=r, a+x, uo=w hello

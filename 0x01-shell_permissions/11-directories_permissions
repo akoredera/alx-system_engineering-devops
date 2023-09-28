@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod -R 00111 /tmp/h
+chmod -R 00111 .

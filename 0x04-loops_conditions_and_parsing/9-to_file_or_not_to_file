@@ -10,7 +10,7 @@ else
 fi
 if ! [ -s "$school_file" ]; then
 	echo "school file is empty"
-elif [ -s "$school_file" ]; then 
+else 
 	echo "school file is not empty"
 fi
 if [ -f "$school_file" ]; then

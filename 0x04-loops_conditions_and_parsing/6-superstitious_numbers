@@ -6,12 +6,15 @@ do
 	((counter += 1))
 	case $counter in
 		4)
+			echo $counter
 			echo "bad luck from China"
 			;;
 		9)
+			echo $counter
 			echo "bad luck from Japan"
 			;;
 		17)
+			echo $counter
 			echo "bad luck from Italy"
 			;;
 		*)

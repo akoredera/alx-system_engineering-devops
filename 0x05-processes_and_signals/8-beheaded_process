@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#script that kills the process 7-highlander.
+pid_num=$(pgrep -f 7-highlander | cut -d " " -f 1)
+kill -9 "$pid_num"

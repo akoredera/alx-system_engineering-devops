@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
-# script that stops 4-to_infinity_and_beyond process.
-# Requirements:
-# * You must use kill
 
-kill -9 6959
+input=$(pgrep -a bash  | grep 4-to_infinity_and_beyond)
+
+counter=0
+
+for x in $input
+do
+	if [ $counter -eq 0 ]; then
+		kill "$x"
+	fi
+	((counter++))
+done

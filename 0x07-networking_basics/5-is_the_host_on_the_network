@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # OSI model
 add=$1
-if [ ! -z "$add" ];
+if [ -n "$add" ];
 then
 	ping -c 5 "$add"
 else

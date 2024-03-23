@@ -1,0 +1,28 @@
+LINK
+https://imgur.com/a/uC7xCz6
+
+
+Infrastructure setup
+
+1. Two Servers: Adding two servers introduces redundancy and fault tolerance to the infrastructure. If one server fails, the other can continue to serve traffic, reducing the risk of downtime.
+
+2. Load Balancer (HAProxy): The load balancer distributes incoming traffic across multiple servers to improve performance, scalability, and availability. HAProxy is a popular choice for load balancing due to its flexibility and high performance.
+
+3. Distribution Algorithm: The load balancer is configured with a round-robin distribution algorithm. This algorithm routes incoming requests sequentially to each server in a rotating manner. It evenly distributes the traffic load across all available servers.
+
+4. Active-Active Setup: The load balancer is configured in an Active-Active setup, where both servers actively handle incoming requests simultaneously. This setup improves performance and fault tolerance by distributing the load evenly across multiple servers.
+
+5. Web Server (Nginx): Nginx serves as the web server, handling incoming HTTP requests and serving static files. It also acts as a reverse proxy to forward dynamic requests to the application server.
+
+6. Application Server: The application server executes the application logic, processes dynamic content, and communicates with the database. It receives requests from the web server, performs necessary computations, and generates responses to be returned to the client.
+
+7. Database (MySQL): MySQL serves as the database management system, storing and managing application data. In this setup, it's configured as a Primary-Replica (Master-Slave) cluster for redundancy and fault tolerance.
+
+8. Set of Application Files: The application files contain the code base of the web application. These files are deployed on both servers and executed by the application server to serve client requests.
+
+Issues with this infrastructure:
+1. Single Points of Failure (SPOFs): If the load balancer itself fails, it could disrupt traffic distribution. Additionally, if the primary database node fails, failover to the replica may not be instantaneous, causing downtime.
+
+2. Security Issues: There are security concerns in this infrastructure. For instance, there's no mention of a firewall to restrict unauthorized access to the servers. Also, HTTPS is not mentioned, which poses a security risk as data transmitted between clients and servers is not encrypted.
+
+3. Lack of Monitoring: There's no mention of monitoring tools or practices in place to monitor the health and performance of the infrastructure. Without proper monitoring, it becomes challenging to detect and address issues proactively, potentially leading to prolonged downtime or performance degradation.

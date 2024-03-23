@@ -1,0 +1,25 @@
+https://imgur.com/a/DUrpaXv
+
+In this infrastructure setup:
+
+1. Server: The server is a physical or virtual machine (in this case, with IP address 8.8.8.8) that hosts all components of the web application, including the web server, application server, database, and application files.
+
+2. Role of the Domain Name: The domain name (foobar.com) serves as a human-readable label that allows users to access the web application. It points to the server's IP address (8.8.8.8) using DNS records, enabling users to access the application by typing the domain name in their web browsers.
+
+3. DNS Record for "www": The DNS record for "www" in www.foobar.com is typically an A (Address) record, which maps the subdomain "www" to the server's IP address (8.8.8.8).
+
+4. Role of the Web Server (Nginx): Nginx, as the web server in this setup, serves as the initial point of contact for client requests. Its role includes handling incoming HTTP requests, serving static files, and routing dynamic requests to the application server. Nginx acts as a reverse proxy for the application server, improving performance by offloading certain tasks and providing additional security features.
+
+5. Role of the Application Server: The application server (not specified, but assumed to be running alongside Nginx) executes the application logic and processes dynamic content. It communicates with the web server to receive client requests, executes application code (e.g., written in Python, Ruby, Java, etc.), interacts with the database to fetch or update data, and generates dynamic web pages or API responses.
+
+6. Role of the Database (MySQL): MySQL serves as the relational database management system (RDBMS) in this infrastructure. Its role includes storing, managing, and retrieving structured data required by the web application. The database stores user information, application data, and other relevant information in tables and enables efficient data manipulation through SQL queries.
+
+7. Server Communication with Users: The server communicates with users' computers over the Internet using the HTTP or HTTPS protocols. When users request the website (e.g., by typing foobar.com in their browser), their computers send HTTP requests to the server. The server responds with HTML content, which the users' browsers then render and display to the users.
+
+Issues with this infrastructure:
+
+1. Single Point of Failure (SPOF): Since all components of the web application are hosted on a single server, it represents a single point of failure. If the server experiences hardware failure, network issues, or other problems, the entire application becomes inaccessible, leading to downtime.
+
+2. Downtime during Maintenance: Performing maintenance tasks, such as deploying new code or updates, requires restarting the web server (Nginx). During this time, the application may become unavailable to users, resulting in downtime and potential loss of revenue or user trust.
+
+3. Limited Scalability: As the infrastructure relies on a single server, it cannot easily scale to handle increased incoming traffic. If the application experiences a sudden surge in traffic (e.g., due to a viral marketing campaign or seasonal spikes), the server may become overwhelmed, leading to degraded performance or downtime. Scaling horizontally (adding more servers) is not straightforward in this setup due to the tightly coupled nature of the components on a single server.

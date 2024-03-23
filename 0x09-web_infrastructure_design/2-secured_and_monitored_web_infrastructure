@@ -1,0 +1,17 @@
+Link: https://imgur.com/a/1WZY2mX
+
+Infrastructure setup:
+
+1. Three Firewalls: Firewalls are added to control and monitor incoming and outgoing network traffic, acting as a barrier between the internal network and external threats. Each firewall is strategically placed to protect different segments of the infrastructure, such as between the internet and the load balancer, between the load balancer and the servers, and between the servers and the database.
+
+2. SSL Certificate: An SSL certificate is added to enable HTTPS encryption for serving www.foobar.com. HTTPS encrypts data transmitted between the client's browser and the server, ensuring data confidentiality and integrity. This helps protect sensitive information such as login credentials, payment details, and personal data from eavesdropping and tampering.
+
+3. Monitoring Clients: Monitoring clients, such as data collectors for Sumo Logic or other monitoring services, are added to collect and analyze data about the infrastructure's health, performance, and security. These clients are deployed on each server to gather metrics, logs, and events, providing insights into the system's status and identifying potential issues proactively.
+
+Issues with this infrastructure:
+
+1. SSL Termination at Load Balancer Level: Terminating SSL at the load balancer can be an issue because it introduces a single point of failure for SSL decryption. If the load balancer fails or becomes overwhelmed, all SSL traffic is disrupted. Additionally, terminating SSL at the load balancer may increase the load on the load balancer, impacting its performance and scalability.
+
+2. Single MySQL Server for Writes: Having only one MySQL server capable of accepting writes introduces a single point of failure for write operations. If the primary MySQL server fails, write operations become unavailable, leading to data inconsistency and potential downtime. Implementing a high availability solution such as MySQL replication with a failover mechanism can address this issue.
+
+3. Homogeneous Server Components: Having servers with all the same components (database, web server, and application server) might be a problem because it lacks diversity and redundancy. If a critical vulnerability or software issue affects one component, it can potentially impact all servers simultaneously, increasing the risk of widespread downtime or security breaches. Introducing diversity in server components and employing a mix of technologies can mitigate this risk.
